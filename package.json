@@ -1,0 +1,21 @@
+{
+  "name": "wantace-assignment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Order tracking dashboard and supporting assignment deliverables for Vardhan Steelware.",
+  "workspaces": [
+    "src/backend",
+    "src/frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:backend": "npm --workspace src/backend run dev",
+    "dev:frontend": "npm --workspace src/frontend run dev",
+    "start": "npm --workspace src/backend start",
+    "build": "npm --workspace src/frontend run build",
+    "test": "node --test src/tests/order.test.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
